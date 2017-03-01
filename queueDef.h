@@ -2,11 +2,13 @@
 #define _queueDef
 struct node{
     
-    char id[100];
+    char id[15];
     
-    int value;
+    char value[50];
     
     int line_no;
+    
+    int id_no;
     
     struct node * next;
     

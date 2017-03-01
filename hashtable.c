@@ -15,15 +15,29 @@ struct firstDataItem *createHashTable(int size){
     return HT;
 }
 
+int hashValue(char *str)
+{
+    long hash = 5381;
+    int c;
+    int i = 0;
+    while (i < strlen(str)){
+        char ch = str[i];
+        c = ch;
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+        i++;
+    }
+    return (hash%16);
+}
+
 void insert(char *keyword,int keyword_number,struct firstDataItem *HT){
     int hashIndex = hashValue(keyword);
-    printf("has index is : %d %d  %s\n\n",hashIndex,keyword_number,keyword);
+    //printf("has index is : %d %d  %s\n\n",hashIndex,keyword_number,keyword);
     if(HT[hashIndex].flag == 0){
         HT[hashIndex].number = keyword_number;
         strcpy(HT[hashIndex].keyword,keyword);
         HT[hashIndex].flag = 1;
         HT[hashIndex].next = NULL;
-        printf("%d %d  %s  %d\n",count,HT[hashIndex].number,HT[hashIndex].keyword,HT[hashIndex].flag);
+        //printf("%d %d  %s  %d\n",count,HT[hashIndex].number,HT[hashIndex].keyword,HT[hashIndex].flag);
     }
     else{
         struct dataItem *temp = (struct dataItem *)malloc(sizeof(struct dataItem));
@@ -36,27 +50,15 @@ void insert(char *keyword,int keyword_number,struct firstDataItem *HT){
                 head = head->next;
             }
             head->next = temp;
-            printf("head not 1 if : %d %d  %s\n",count,HT[hashIndex].next->number,HT[hashIndex].next->keyword);
+            //printf("head not 1 if : %d %d  %s\n",count,HT[hashIndex].next->number,HT[hashIndex].next->keyword);
         }
         else{
             HT[hashIndex].next = temp;
-            printf("head not 1 else : %d %d  %s\n",count,HT[hashIndex].next->number,HT[hashIndex].next->keyword);
+            //printf("head not 1 else : %d %d  %s\n",count,HT[hashIndex].next->number,HT[hashIndex].next->keyword);
         }
     }
     count++;
     
-}
-int hashValue(char *str)
-{
-    long hash = 5381;
-    int c;
-    int i = 0;
-    while (i < strlen(str)){
-        c = 'str[i]';
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-        i++;
-    }
-    return (hash%16);
 }
 
 int search(char *keyword,struct firstDataItem *HT){
@@ -96,6 +98,6 @@ int search(char *keyword,struct firstDataItem *HT){
 //        insert(str, number, ht);
 //        
 //    }
-//    printf("%d",search("declare",ht));
+//    printf("%d",search("array",ht));
 //}
-
+//

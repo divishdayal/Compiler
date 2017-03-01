@@ -72,12 +72,12 @@ void printQ(struct queue *Q){
     
     while(temp != NULL){
         
-        printf("%d  %s  %d\n",temp->line_no,temp->id,temp->value);
+        printf("%d  %s  %s   %d\n",temp->line_no,temp->id,temp->value,temp->id_no);
         temp = temp->next;
         
     }
     
-    printf("%d\n",Q->size);
+    printf("Queue size is : %d\n",Q->size);
     
 }
 
@@ -100,7 +100,9 @@ void printQ(struct queue *Q){
 //        temp->value = i;
 //        
 //        temp->line_no = i*10;
-//        
+//
+//        temp->id_no = 1;
+
 //        temp->next = NULL;
 //        
 //        Enqueue(Q,temp);
