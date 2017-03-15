@@ -1,3 +1,5 @@
+// Sugam Garg - 2014A7PS092P, Divish Dayal - 2014A7PS132P
+
 #include<stdio.h>
 
 #include<stdlib.h>
@@ -42,13 +44,13 @@ void Enqueue(struct queue *Q,struct node *temp){
 }
 
 
-void Dequeue(struct queue *Q){
+struct node * Dequeue(struct queue *Q){
     
     if(Q->size == 0){
         
         printf("Queue is empty");
         
-        return;
+        return NULL;
         
     }
     Q->size--;
@@ -59,9 +61,9 @@ void Dequeue(struct queue *Q){
     
     Q->front = Q->front->next;
     
-    free(temp);
+    //free(temp);
     
-    return;
+    return temp;
     
 }
 

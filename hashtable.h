@@ -1,3 +1,5 @@
+// Sugam Garg - 2014A7PS092P, Divish Dayal - 2014A7PS132P
+
 #include<stdio.h>
 #include<stdlib.h>
 #include"hashDef.h"

@@ -1,3 +1,5 @@
+// Sugam Garg - 2014A7PS092P, Divish Dayal - 2014A7PS132P
+
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
